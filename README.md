@@ -32,7 +32,7 @@
     10:        Bt ← Bt ∪ (w)
     11: return sequence Bt
     
->  Personalized PageRank(个性化PageRank)
+>  Personalized PageRank Algorithm(个性化PageRank)
 
     P[t+1] = (1-σ)P[0] + σMP[t]
     
@@ -40,6 +40,14 @@
     * σ为阻尼系数，通常设为0.85
     * P[0]为初始化向量，与yt对应维度设为1.0
     * The weight pi in line 5 is the value of the ith dimension of the PPR vector P computed for the synset yt.
+学习语义表示：
+
+    argmin v∗[si] α d(v∗[si], v[si]) + δij d(v∗[si], v[bij] )
+    
+    * where v[si] and v[bij] are the respective word representations (∈ V) of the lemma of si and the jth biasing word in the list of biasing words for si
+    
+    
+    
     
     
     
