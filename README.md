@@ -22,16 +22,24 @@
     
     1: Bt ← ()
     2: for all word w in µ(yt) do
-    3:  Bt ← Bt ∪ (w)
+    3:     Bt ← Bt ∪ (w)
     4: for yi ∈ V : yi = yt do
-    5:  pi ← PERSONALIZEDPAGERANK(yi, yt, G)
+    5:     pi ← PERSONALIZEDPAGERANK(yi, yt, G)
     6: yh(h=1,2,...,m-1) ← SORT(V \{yt}) according to scores pi
     7: for h:1 to m-1 do
-    8:  for all word w in µ(y∗h) do
-    9:      if w /∈ Bt then
-    10:     Bt ← Bt ∪ (w)
+    8:     for all word w in µ(yh) do
+    9:         if w /∈ Bt then
+    10:        Bt ← Bt ∪ (w)
     11: return sequence Bt
     
+>  Personalized PageRank(个性化PageRank)
+
+    P[t+1] = (1-σ)P[0] + σMP[t]
+    
+    * 首先将WordNet的语义网络表示为行随机转移矩阵M，其中m是WordNet中的synset个数。如果synset i和synset j之间存在语义关系，单元格Mij被设为i的次数的倒数，否则设置为零。
+    * σ为阻尼系数，通常设为0.85
+    * P[0]为初始化向量，与yt对应维度设为1.0
+    * The weight pi in line 5 is the value of the ith dimension of the PPR vector P computed for the synset yt.
     
     
     
