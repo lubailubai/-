@@ -64,6 +64,21 @@
   
         Pr(w[i-k],...,w[i+k]|w[i]) = *{w[c] b.t. C(w[i]} Pr(w[c]|w[i]) 
         = *{w[c] b.t. C(w[i]} (exp(w[c]*w[i])/+{w[j] b.t. Dictionaryexp(w[i]*w[j])})
+
+模型：
+* 1.Simple Sememe Aggregation Model (SSA) 
+    在传统的skip-gram模型基础之上，对target word部分进行改造，使用target word 由对应的所有sense包含的所有的sememe embedding相加求均值得到。
+    和传统的skip-gram相比，这种方式里sememe向量会被一些词语共享，模型可以利用sememe之间的共享信息来表征词语之间的某些语义关联关系。在这种模式之下，拥有相同sememe的词语最终会有比较相似的向量表征形式。 
+* 2.Sememe Attention over Context Model (SAC) 
+    这部分应用了attention机制，而且是在context内容上进行应用的。
+    因为对于一个词语的表征，在不同的语境中其对应的sense集合中的元素之间的重要性也是不同的，这里很好的应用了attentin机制来对于重要性进行标识。
+    一个词语的sense向量是由其对应的sememe向量直接相加求均值得到。然后三个不同的sense向量s1，s2，s3通过attention机制相加得到最终context的word 级别的embedding形式，具体三种权值的大小的选取由这三种sense向量和target 向量的相似程度得到。
+    将注意力机制引入到模型中，从而可以辅助训练过程中的消歧。
+    也就是说如果一个上下文词的某个义原跟中心词的意思更加相近，那么他就获得更多的关注，从而在生成上下文词的向量表示时，这个义原的权重就会越大，而最终生成的上下文词向量也就具有更好的表达能力。所以这个模型也称之为上下文模型（context model）。
+* 3.Sememe Attention over Target Model (SAT) 
+    
+        
+        
     
     
     
