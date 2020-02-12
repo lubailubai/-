@@ -50,7 +50,22 @@
 =====
 概念及背景知识：
 
-    1.Hownet有三个主要的概念，即sememe（义元），sense（词义）和word（词语）。
+1.Hownet有三个主要的概念，即sememe（义元），sense（词义）和word（词语）。
+  在hownet的描述体系中，sememe是最小的描述单元，相似的sense会包含相同的sememe，这些sememe就相当于是整个世界所有事物最基本的单元。
+  而且sememe的数量相对词语的数量来说是非常有限的，在hownet中大概就是几百个。
+    
+    eg：word（苹果）包含了两个sense，sense1是水果，sense2是电脑
+    
+    对于每一个sense来说是由sememe来描述其属性
+2.SkipGram：
+
+    +{i=K,...,n-K} logPr(w[i-k],...,w[i+k]|w[i]) 
+  其中K代表了滑动窗口的大小，它定义了target词语所对应的上下文的范围，也就是说它的整体目标是利用当前词语target，来最大化的预测其上下文的信息，skip-gram对于上下文的信息做了简化处理，即从K大小的窗口内随机抽取一个词语来作为其上下文的替代，故上面的最优化式子简化如下： 
+  
+    Pr(w[i-k],...,w[i+k]|w[i]) 
+    
+    
+    
     
     
     
