@@ -46,6 +46,9 @@
     
     * where v[si] and v[bij] are the respective word representations (∈ V) of the lemma of si and the jth biasing word in the list of biasing words for si
     
+义元信息参与的词向量表达
+=====
+
     
     
     
